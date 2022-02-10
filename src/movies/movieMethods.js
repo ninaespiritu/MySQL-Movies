@@ -26,6 +26,51 @@ exports.listAll = async () => {
     }
 };
 
+// UPDATE FILMS BY FILTER 
+exports.updateFilm = async () => {
+    try {
+        if (argv.newname) {
+            const updateResult = await Film.update(
+                { name: argv.newname }, {
+                where: {
+                    name: argv.name
+                }
+            })
+            console.log(`${updateResult} movie/s updated to name "${argv.newname}"`)
+        }
+        else if (argv.newgenre) {
+            const updateResult = await Film.update(
+                { genre: argv.newgenre }, {
+                where: {
+                    name: argv.name
+                }
+            })
+            console.log(`${updateResult} movie/s updated to genre "${argv.newgenre}"`)
+        }
+        else if (argv.newactor) {
+            const updateResult = await Film.update(
+                { actor: argv.newactor }, {
+                where: {
+                    name: argv.name
+                }
+            })
+            console.log(`${updateResult} movie/s updated to actor "${argv.newactor}"`)
+        }
+        else if (argv.newrating) {
+            const updateResult = await Film.update(
+                { rating: argv.newrating }, {
+                where: {
+                    name: argv.name
+                }
+            })
+            console.log(`${updateResult} movie/s updated to rating "${argv.newrating}"`)
+        }
+    }
+    catch (error) {
+        console.log(error)
+    }
+};
+
 // DELETE FILMS BY FILTER
 exports.deleteFilm = async () => {
     try {

@@ -2,12 +2,12 @@ const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
 const argv = yargs(hideBin(process.argv)).argv;
 
-const { addFilm, listAll, deleteFilm, deleteAll } = require("./movies/movieMethods");
+const { addFilm, listAll, updateFilm, deleteFilm, deleteAll } = require("./movies/movieMethods");
 
 const App = async () => {
     if (argv.add) {
         const filmObj = {
-            name: argv.title,
+            name: argv.name,
             genre: argv.genre,
             actor: argv.actor,
             rating: argv.rating,
@@ -16,6 +16,9 @@ const App = async () => {
     }
     else if (argv.list) {
         await listAll()
+    }
+    else if (argv.update) {
+        await updateFilm()
     }
     else if (argv.delete) {
         await deleteFilm()
