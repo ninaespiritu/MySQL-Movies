@@ -15,7 +15,7 @@ exports.addFilm = async (filmObj) => {
     }
 };
 
-exports.listFilms = async () => {
+exports.listAll = async () => {
     try {
         const listResult = await Film.findAll()
         console.log(listResult)

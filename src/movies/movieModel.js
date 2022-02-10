@@ -1,7 +1,7 @@
 const sequelize = require("../db/connection");
 const { DataTypes } = require("sequelize");
 
-const Film = sequelize.define("Netflix", {
+const Film = sequelize.define("HBO", {
     name: {
         type: DataTypes.STRING,
         allowNull: false
@@ -12,11 +12,13 @@ const Film = sequelize.define("Netflix", {
     },
     actor: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true,
+        defaultValue: "No actor details"
     },
     rating: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true,
+        defaultValue: 0
     },
 });
 
