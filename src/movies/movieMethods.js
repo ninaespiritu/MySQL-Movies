@@ -26,6 +26,19 @@ exports.listAll = async () => {
     }
 };
 
+// LIST ATTRIBUTES
+exports.listName = async () => {
+    try {
+        const listResult = await Film.findAll({
+            attributes: ["name"]
+        })
+        console.log(listResult)
+    }
+    catch (error) {
+        console.log(error)
+    }
+};
+
 // UPDATE FILMS BY FILTER 
 exports.updateFilm = async () => {
     try {
